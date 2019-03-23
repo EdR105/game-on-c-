@@ -1,0 +1,109 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include <conio.h>
+void dos_jugadores()
+{
+	int player1;
+	int player2;
+	
+	printf("*******2 JUGADORES*********\n");
+	printf("*JUGADOR 1 \n");
+	printf("ESCOJER UNA DE LAS OPCIONES  \n");
+	printf("0   PIEDRA\n");
+	printf("1   PAPEL\n");
+	printf("2	TIJERA\n");
+	scanf("%i", &player1);
+	
+	printf("*JUGADOR 2 \n");
+	printf("ESCOJER UNA DE LAS OPCIONES  \n");
+	printf("0   PIEDRA\n");
+	printf("1   PAPEL\n");
+	printf("2	TIJERA\n");
+	scanf("%i", &player2);
+	juegos(player1,player2);
+	
+	
+}
+void juegos(j1, j2)
+{
+	if( j1 == 0 && j2 == 1)
+	{
+		printf(" GANA JUGADOR 1\n");
+	}
+	if( j1 == 1 && j2 == 0)
+	{
+		printf(" GANA JUGADOR 2\n");
+	}
+	if( j1 == 0 && j2 == 2)
+	{
+		printf(" GANA JUGADOR 1\n");
+	}
+	if( j1 == 2 && j2 == 0)
+	{
+		printf(" GANA JUGADOR 2\n");
+	}
+	if( j1 == 1 && j2 == 2)
+	{
+		printf(" GANA JUGADOR 2\n");
+	}
+	if( j1 == 2 && j2 == 1)
+	{
+		printf(" GANA JUGADOR 1\n");
+	}
+}
+void jugador1()
+{
+	int opcion;
+	int op_maquina;
+	
+	printf("******1 VS LA MAQUINA*********\n");
+	printf("ESCOJER UNA DE LAS OPCIONES  \n");
+	printf("0   PIEDRA\n");
+	printf("1   PAPEL\n");
+	printf("2	TIJERA\n");
+	scanf("%i", &opcion);
+	if(opcion<0 && opcion > 2)
+	{
+		printf("ERROR\n");
+	}
+	op_maquina = rand() % 3;
+	juegos(opcion,op_maquina);
+	
+	
+	
+}
+int menu()
+{
+	int player;
+	printf("****PIEDRA   PAPEL  O  TIJERAS ****\n");
+	printf(" 1 jugador \n");
+	printf(" 2 jugadores\n");
+	scanf("%i", &player);
+	if(player ==1 )
+	{
+		return player;
+	}
+	if(player == 2)
+	{
+		return player;
+	}else{
+		printf("Error\n");
+	}
+	
+}
+int main()
+{
+	int jugador;
+	jugador = menu();
+	if(jugador == 1)
+	{
+		
+		jugador1();
+	}
+	if( jugador ==2)
+	{
+		
+		dos_jugadores();
+	}
+	system("pause");
+}
